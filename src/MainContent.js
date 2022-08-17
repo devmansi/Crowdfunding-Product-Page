@@ -7,8 +7,7 @@ import CheckInModal from "./CheckInModal";
 import CheckOutModal from "./CheckOutModal";
 
 export default function MainContent() {
-  const [checkInStatus, setCheckInStatus] = React.useState(false);
-  const [checkOutStatus, setCheckOutStatus] = React.useState(false);
+  const [status, setStatus] = React.useState();
   const [selectedPlan, setSelectedPlan] = React.useState();
   const [tally, setTally] = React.useState({
     totalAmount: 0,
@@ -40,11 +39,10 @@ export default function MainContent() {
       e.target.classList.contains("radio-button") &&
       !e.target.closest(".modal--plan").classList.contains("dull")
     ) {
-      setCheckOutStatus(false);
+      setStatus();
       if (e.target.closest(".modal--plan").classList[0] === "default") {
         setTally({ ...tally, totalPeople: Number(tally.totalPeople) + 1 });
-        setCheckInStatus(false);
-        setCheckOutStatus(true);
+        setStatus("checkOut");
       }
       setSelectedPlan(e.target.closest(".modal--plan").classList[0]);
     }
@@ -82,8 +80,7 @@ export default function MainContent() {
           ? setOneInput("25")
           : setTwoInput("75");
 
-        setCheckInStatus(false);
-        setCheckOutStatus(true);
+        setStatus("checkOut");
       }
     }
   }
@@ -96,8 +93,7 @@ export default function MainContent() {
       return;
     }
 
-    setCheckInStatus(true);
-    setCheckOutStatus(false);
+    openInModal();
     openSelectedPlan(e.target.closest(".plan").classList[1]);
     e.target.closest(".plan").classList[1] === "one"
       ? setOneInput("25")
@@ -105,9 +101,7 @@ export default function MainContent() {
   }
 
   function openInModal() {
-    setCheckInStatus(true);
-    setCheckOutStatus(false);
-    setSelectedPlan();
+    setStatus("checkIn");
   }
 
   function closeInModal(e) {
@@ -118,7 +112,8 @@ export default function MainContent() {
       return;
     }
 
-    setCheckInStatus(false);
+    setStatus();
+    setSelectedPlan();
   }
 
   return (
@@ -129,18 +124,19 @@ export default function MainContent() {
         openInModalWithSelectedPlan={openInModalWithSelectedPlan}
         tally={tally}
       />
-      <CheckInModal
-        checkInStatus={checkInStatus}
-        closeInModal={closeInModal}
-        selectedPlan={selectedPlan}
-        handleModalSelectedPlan={handleModalSelectedPlan}
-        oneInput={oneInput}
-        twoInput={twoInput}
-        threeInput={threeInput}
-        handleInput={handleInput}
-        tally={tally}
-      />
-      <CheckOutModal checkOutStatus={checkOutStatus} />
+      {status === "checkIn" && (
+        <CheckInModal
+          closeInModal={closeInModal}
+          selectedPlan={selectedPlan}
+          handleModalSelectedPlan={handleModalSelectedPlan}
+          oneInput={oneInput}
+          twoInput={twoInput}
+          threeInput={threeInput}
+          handleInput={handleInput}
+          tally={tally}
+        />
+      )}
+      {status === "checkOut" && <CheckOutModal />}
     </>
   );
 }

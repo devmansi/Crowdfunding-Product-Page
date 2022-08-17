@@ -38,11 +38,11 @@ export default function HeroSection({ openInModal, tally }) {
       </p>
       <div className="flex main-buttons">
         <button
-          className={`back-project-btn btn${
-            tally.totalAmount >= 1000 ? " done" : ""
+          className={`back-project-btn btn ${
+            tally.totalAmount >= 1000 ? "done" : ""
           }`}
           onClick={openInModal}
-          disabled={tally.totalAmount >= 1000 ? true : false}
+          disabled={tally.totalAmount >= 1000}
         >
           Back this project
         </button>

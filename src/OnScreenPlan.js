@@ -3,10 +3,8 @@ import React from "react";
 export default function onScreenPlan({ plan, planNumber, tally }) {
   return (
     <section
-      className={`plan ${planNumber}${
-        tally.totalAmount < 1000 && tally[`${planNumber}Left`] > 0
-          ? ""
-          : " dull"
+      className={`plan ${planNumber} ${
+        tally.totalAmount < 1000 && tally[`${planNumber}Left`] > 0 ? "" : "dull"
       }`}
     >
       <div className="flex justify-content">
@@ -24,11 +22,7 @@ export default function onScreenPlan({ plan, planNumber, tally }) {
               ? ""
               : " out-of-stock"
           }`}
-          disabled={
-            tally.totalAmount < 1000 && tally[`${planNumber}Left`] > 0
-              ? false
-              : true
-          }
+          disabled={tally.totalAmount < 1000 && tally[`${planNumber}Left`] > 0}
         >
           {tally[`${planNumber}Left`] > 0 ? "Select Reward" : "Out of stock"}
         </button>

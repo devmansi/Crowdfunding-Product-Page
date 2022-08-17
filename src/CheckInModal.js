@@ -4,7 +4,6 @@ import data from "./data";
 import ModalPlan from "./ModalPlan";
 
 export default function CheckInModal({
-  checkInStatus,
   closeInModal,
   selectedPlan,
   handleModalSelectedPlan,
@@ -18,10 +17,7 @@ export default function CheckInModal({
   const pledge = [25, 75, 200];
   const type = [oneInput, twoInput, threeInput];
   return (
-    <section
-      className={`modal-container ${checkInStatus ? "" : "hide"}`}
-      onClick={closeInModal}
-    >
+    <section className="modal-container" onClick={closeInModal}>
       <div className="modal-content">
         <svg
           className="close-modal"

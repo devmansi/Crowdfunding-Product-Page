@@ -1,15 +1,11 @@
 import React from "react";
 
-export default function CheckOutModal({ checkOutStatus }) {
+export default function CheckOutModal() {
   function gotIt(e) {
     e.target.closest(".thank-you-container").classList.add("hide");
   }
   return (
-    <section
-      className={`modal-container thank-you-container${
-        checkOutStatus ? "" : " hide"
-      }`}
-    >
+    <section className="modal-container thank-you-container">
       <div className="modal-content thank-you">
         <svg
           className="check-out"

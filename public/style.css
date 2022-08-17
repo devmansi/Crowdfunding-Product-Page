@@ -93,7 +93,7 @@ body {
   margin: 18rem auto 12.4rem;
 }
 
-/* ṂAIN SECTION */
+/* HERO SECTION */
 
 .hero-section {
   padding: 5.6rem 4.8rem 4.8rem;
@@ -359,15 +359,6 @@ hr {
 .radio-button:hover .checked {
   background-color: hsl(176, 72%, 28%);
 }
-
-/*
-.checked {
-  width: 13px;
-  height: 13px;
-  background-color: hsl(176, 50%, 47%);
-  border-radius: 50%;
-  transition: all 0.3s;
-} */
 
 .modal-plans {
   flex-direction: column;
