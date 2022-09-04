@@ -56,7 +56,7 @@ export default function ModalPlan({
           <input
             type="text"
             value={inputType}
-            name={`${inputType}`}
+            name={`${planNumber}`}
             onInput={handleInput}
             className={`pledge-input${
               inputType < initialPledge ? " error" : ""

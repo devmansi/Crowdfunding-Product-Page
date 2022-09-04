@@ -24,7 +24,7 @@ export default function MainContent() {
   function handleInput(e) {
     const { name, value } = e.target;
 
-    name === "oneInput" ? setOneInput(value) : setTwoInput(value);
+    name === "one" ? setOneInput(value) : setTwoInput(value);
   }
 
   function openSelectedPlan(plan) {
