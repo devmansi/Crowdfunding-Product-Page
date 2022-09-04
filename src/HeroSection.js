@@ -1,14 +1,8 @@
 import React from "react";
 
 export default function HeroSection({ openInModal, tally }) {
-  function bookmarkPage(e) {
-    e.currentTarget.classList.toggle("bookmark-cg");
-    e.currentTarget.children[0].classList.toggle("bookmark-svg-cg");
-    e.currentTarget.children[1].textContent =
-      e.currentTarget.children[1].textContent === "Bookmark"
-        ? "Bookmarked"
-        : "Bookmark";
-  }
+  const [isBookmarked, setIsBookmarked] = React.useState(false);
+
   return (
     <section className="hero-section">
       <svg
@@ -46,9 +40,14 @@ export default function HeroSection({ openInModal, tally }) {
         >
           Back this project
         </button>
-        <button className="bookmark-btn btn" onClick={bookmarkPage}>
+        <button
+          className={`bookmark-btn btn ${isBookmarked ? "bookmark-cg" : ""}`}
+          onClick={() => {
+            setIsBookmarked(!isBookmarked);
+          }}
+        >
           <svg
-            className="bookmark-svg"
+            className={`bookmark-svg ${isBookmarked ? "bookmark-svg-cg" : ""}`}
             width="56"
             height="56"
             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +57,7 @@ export default function HeroSection({ openInModal, tally }) {
               <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
             </g>
           </svg>
-          <span>Bookmark</span>
+          <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
         </button>
       </div>
     </section>
