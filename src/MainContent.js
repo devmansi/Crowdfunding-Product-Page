@@ -16,6 +16,7 @@ export default function MainContent() {
     twoLeft: 2,
     threeLeft: 0,
   });
+
   const [oneInput, setOneInput] = React.useState("25");
   const [twoInput, setTwoInput] = React.useState("75");
   const [threeInput, setThreeInput] = React.useState("25");
@@ -39,7 +40,6 @@ export default function MainContent() {
       e.target.classList.contains("radio-button") &&
       !e.target.closest(".modal--plan").classList.contains("dull")
     ) {
-      setStatus();
       if (e.target.closest(".modal--plan").classList[0] === "default") {
         setTally({ ...tally, totalPeople: Number(tally.totalPeople) + 1 });
         setStatus("checkOut");
