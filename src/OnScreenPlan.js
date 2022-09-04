@@ -22,7 +22,9 @@ export default function onScreenPlan({ plan, planNumber, tally }) {
               ? ""
               : " out-of-stock"
           }`}
-          disabled={tally.totalAmount < 1000 && tally[`${planNumber}Left`] > 0}
+          disabled={
+            !(tally.totalAmount < 1000 && tally[`${planNumber}Left`] > 0)
+          }
         >
           {tally[`${planNumber}Left`] > 0 ? "Select Reward" : "Out of stock"}
         </button>
