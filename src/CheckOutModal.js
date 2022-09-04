@@ -1,9 +1,6 @@
 import React from "react";
 
-export default function CheckOutModal() {
-  function gotIt(e) {
-    e.target.closest(".thank-you-container").classList.add("hide");
-  }
+export default function CheckOutModal({ closeModal }) {
   return (
     <section className="modal-container thank-you-container">
       <div className="modal-content thank-you">
@@ -24,7 +21,7 @@ export default function CheckOutModal() {
           Monitor Riser worldwide. You will get an email once our campaign is
           completed.
         </p>
-        <button className="btn got-it-btn" onClick={gotIt}>
+        <button className="btn got-it-btn" onClick={closeModal}>
           Got it
         </button>
       </div>

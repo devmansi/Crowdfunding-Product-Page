@@ -112,8 +112,12 @@ export default function MainContent() {
       return;
     }
 
-    setStatus();
     setSelectedPlan();
+    closeModal();
+  }
+
+  function closeModal() {
+    setStatus();
   }
 
   return (
@@ -136,7 +140,7 @@ export default function MainContent() {
           tally={tally}
         />
       )}
-      {status === "checkOut" && <CheckOutModal />}
+      {status === "checkOut" && <CheckOutModal closeModal={closeModal} />}
     </>
   );
 }
