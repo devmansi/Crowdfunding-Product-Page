@@ -19,7 +19,7 @@ export default function MainContent() {
 
   const [oneInput, setOneInput] = React.useState("25");
   const [twoInput, setTwoInput] = React.useState("75");
-  const [threeInput, setThreeInput] = React.useState("25");
+  const threeInput = "25";
 
   function handleInput(e) {
     const { name, value } = e.target;

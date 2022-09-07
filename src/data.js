@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     heading: "Bamboo Stand",
     pledge: "Pledge $25 or more",
@@ -18,3 +18,5 @@ export default [
       "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
   },
 ];
+
+export default data;
